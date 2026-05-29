@@ -5,7 +5,7 @@ import CityDetailClient from "./CityDetailClient";
 
 export async function generateStaticParams() {
     const cities = await prisma.city.findMany({ select: { slug: true } });
-    return cities.map((c) => ({ slug: c.slug }));
+    return cities.map((c: { slug: string }) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

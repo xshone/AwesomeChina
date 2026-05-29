@@ -3,6 +3,8 @@ import { auth } from "@/lib/auth";
 import { routing } from "@/i18n/routing";
 import { NextRequest, NextResponse } from "next/server";
 
+export const runtime = "nodejs";
+
 const intlMiddleware = createMiddleware(routing);
 
 const protectedPaths = ["/profile", "/admin"];

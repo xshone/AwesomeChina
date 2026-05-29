@@ -10,7 +10,7 @@ import { Link } from "@/i18n/navigation";
 
 export async function generateStaticParams() {
     const foods = await prisma.food.findMany({ select: { slug: true } });
-    return foods.map((f) => ({ slug: f.slug }));
+    return foods.map((f: { slug: string }) => ({ slug: f.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
